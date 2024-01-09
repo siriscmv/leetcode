@@ -1,0 +1,21 @@
+name: Sync Leetcode
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 1 * *" # Every month
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Sync
+        uses: siriscmv/leetcode-sync@c860c256d9b91dee52a8af86622964c090819ac2
+        with:
+          github-token: ${{ github.token }}
+          leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
+          leetcode-session: ${{ secrets.LEETCODE_SESSION }}
+          destination-folder: problems
+          verbose: true
+          commit-header: '[sync]'
