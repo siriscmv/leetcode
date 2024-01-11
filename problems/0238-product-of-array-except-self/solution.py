@@ -11,5 +11,3 @@ class Solution:
             ans[i] *= curr
             i -= 1
         return ans
-
-
