@@ -1,11 +1,10 @@
 class Solution:
     def findErrorNums(self, nums: List[int]) -> List[int]:
-      st, n = set(nums), len(nums)
-      ans = None
-      
-      for i in range(1, n+1):
-        if i not in st:
-          ans = i
-          break
-      
-      return [ans + sum(nums) - n*(n+1)//2 , ans]
+        seen, ans = set(), 0
+
+        for n in nums:
+            if n in seen: ans = n
+            else: seen.add(n)
+
+        for i in range(1, len(nums)+1):
+            if i not in seen: return [ans, i]
