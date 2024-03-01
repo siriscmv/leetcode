@@ -1,4 +1,5 @@
 class Solution:
     def maximumOddBinaryNumber(self, s: str) -> str:
-        a, b = s.count('0'), s.count('1')
-        return '1' * (b-1) + '0' * a + '1'
+        a, b = s.count('1'), s.count('0')
+
+        return '1' * (a-1) + '0' * b + '1'
