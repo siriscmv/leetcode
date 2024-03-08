@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 class Solution:
     def maxFrequencyElements(self, nums: List[int]) -> int:
         if not nums: return 0
