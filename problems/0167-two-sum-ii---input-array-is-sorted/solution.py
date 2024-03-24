@@ -1,13 +1,9 @@
 class Solution:
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        l = len(numbers)
-        for i in range(0, l-1):
-            t = target - numbers[i]
-            if numbers[l-1] < t: continue
-            elif numbers[l-1] == t: return [i+1, l]
+        n = len(numbers)
 
-            for j in range(i+1, l):
-                if numbers[j] < t: continue
-                elif numbers[j] == t: return [i+1, j+1]
-                else: break
-        
+        for i in range(n):
+            ix = bisect_left(numbers, target - numbers[i])
+            if ix < n and numbers[i] + numbers[ix] == target: 
+                if numbers[i] != numbers[ix]: return [i+1, ix+1]
+                return [i+1, ix+2]
