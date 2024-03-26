@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Sync
-        uses: siriscmv/leetcode-sync@c1873656f848633b304ee4359d77e6e467961d6e
+        uses: siriscmv/leetcode-sync@6bddc4215f6a332395af8f4a9ff0226a03d00faf
         with:
           github-token: ${{ github.token }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
